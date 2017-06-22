@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div id="numbers">numbers keep coming....</div>
+<script>
+    var es = new EventSource('/events');
+    es.addEventListener('post', function (event) {
+        document.querySelector('#numbers').innerHTML = event.data;
+    }, false);
+
+    navigator.serviceWorker.register('/sw.js')
+</script>
+</body>
+</html>
